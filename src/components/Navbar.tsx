@@ -54,6 +54,17 @@ const Navbar = () => {
             >
               Leaderboard
             </Link>
+
+            <Link
+              to="/about"
+              className={`px-3 py-2 text-sm font-medium rounded-md ${
+                isActive("/about")
+                  ? "text-university-800 bg-blue-50"
+                  : "text-gray-600 hover:text-university-700 hover:bg-gray-50"
+              }`}
+            >
+              About
+            </Link>
           </nav>
           
           <div className="flex items-center md:hidden">
