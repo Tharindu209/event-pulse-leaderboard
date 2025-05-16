@@ -17,7 +17,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
               <span className="text-2xl font-bold text-university-800">
-                UniEvents
+                FCT Open Day
               </span>
             </Link>
           </div>
@@ -55,16 +55,28 @@ const Navbar = () => {
             >
               Leaderboard
             </Link>
+
             <Link
-              to="/chatbot"
-              className={`px-3 py-2 text-sm font-medium rounded-md flex items-center ${
-                isActive("/chatbot")
+                to="/chatbot"
+                className={`px-3 py-2 text-sm font-medium rounded-md flex items-center ${
+                    isActive("/chatbot")
+                        ? "text-university-800 bg-blue-50"
+                        : "text-gray-600 hover:text-university-700 hover:bg-gray-50"
+                }`}
+            >
+              <MessageCircle className="mr-1 h-4 w-4" />
+              Chatbot
+            </Link>
+
+            <Link
+              to="/about"
+              className={`px-3 py-2 text-sm font-medium rounded-md ${
+                isActive("/about")
                   ? "text-university-800 bg-blue-50"
                   : "text-gray-600 hover:text-university-700 hover:bg-gray-50"
               }`}
             >
-              <MessageCircle className="mr-1 h-4 w-4" />
-              Course Info
+              About
             </Link>
           </nav>
           
