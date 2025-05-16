@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,19 +14,20 @@ import {
   completeQuiz, 
   resetQuiz 
 } from '../redux/quizSlice';
+import { RootState } from '../redux/store';
 
 const QUIZ_TIME = 15 * 60; // 15 minutes in seconds
 
 const Questions = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { firstName, lastName } = useSelector((state) => state.user);
+  const { firstName, lastName } = useSelector((state: RootState) => state.user);
   const { 
     currentQuestionIndex, 
     answers, 
     completed, 
     score 
-  } = useSelector((state) => state.quiz);
+  } = useSelector((state: RootState) => state.quiz);
 
   // Redirect to registration if no name is provided
   useEffect(() => {

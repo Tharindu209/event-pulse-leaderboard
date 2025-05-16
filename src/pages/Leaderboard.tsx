@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Button } from "@/components/ui/button";
@@ -9,6 +8,7 @@ import Footer from '@/components/Footer';
 import LeaderboardTable from '@/components/LeaderboardTable';
 import { leaderboardData } from '@/data/leaderboard';
 import { toast } from "@/components/ui/use-toast";
+import { RootState } from '../redux/store';
 
 const Leaderboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,8 +16,8 @@ const Leaderboard = () => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [leaderboardEntries, setLeaderboardEntries] = useState(leaderboardData);
   
-  const { firstName, lastName } = useSelector((state) => state.user);
-  const { score, timeTaken } = useSelector((state) => state.quiz);
+  const { firstName, lastName } = useSelector((state: RootState) => state.user);
+  const { score, timeTaken } = useSelector((state: RootState) => state.quiz);
   
   // Check if the user has completed a quiz that needs to be submitted
   useEffect(() => {

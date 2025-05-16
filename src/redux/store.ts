@@ -9,3 +9,7 @@ export const store = configureStore({
     quiz: quizReducer,
   },
 });
+
+// Export types for TypeScript usage
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
