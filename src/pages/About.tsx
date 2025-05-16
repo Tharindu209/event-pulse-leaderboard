@@ -1,10 +1,10 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import TeamMemberCard from '@/components/TeamMemberCard';
 
 const About = () => {
     return (
@@ -56,39 +56,8 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Mission & Vision Section */}
-                <section className="py-16 bg-gray-50">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-3xl font-bold text-center text-university-800 mb-12">Our Mission & Vision</h2>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <Card className="shadow-md hover:shadow-xl transition-shadow duration-300 bg-white">
-                                <CardContent className="p-6">
-                                    <h3 className="text-2xl font-bold text-university-800 mb-4">Mission</h3>
-                                    <p className="text-gray-600">
-                                        To foster a vibrant community of computer science enthusiasts by providing opportunities for skill development,
-                                        networking, and innovation. We aim to bridge academic learning with industry practice, preparing our members
-                                        for successful careers in technology.
-                                    </p>
-                                </CardContent>
-                            </Card>
-
-                            <Card className="shadow-md hover:shadow-xl transition-shadow duration-300 bg-white">
-                                <CardContent className="p-6">
-                                    <h3 className="text-2xl font-bold text-university-800 mb-4">Vision</h3>
-                                    <p className="text-gray-600">
-                                        To be recognized as the leading student technology association in Sri Lankan universities,
-                                        known for nurturing technical excellence, innovation, and leadership among computing students.
-                                        We envision creating graduates who are industry-ready and capable of driving technological advancements.
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </div>
-                </section>
-
                 {/* What We Do Section */}
-                <section className="py-16">
+                <section className="py-12 bg-gray-50">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <h2 className="text-3xl font-bold text-center text-university-800 mb-12">What We Do</h2>
 
@@ -138,64 +107,107 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Team Section */}
-                <section className="py-16 bg-gray-50">
+                {/* Achievements Section */}
+                <section className="py-12">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-3xl font-bold text-center text-university-800 mb-12">Our Executive Committee</h2>
+                        <h2 className="text-3xl font-bold text-center text-university-800 mb-12">Our Achievements</h2>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                            <TeamMemberCard
-                                name="Amal Perera"
-                                position="President"
-                                image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            />
-                            <TeamMemberCard
-                                name="Sameera Silva"
-                                position="Vice President"
-                                image="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            />
-                            <TeamMemberCard
-                                name="Nadia Mendis"
-                                position="Secretary"
-                                image="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            />
-                            <TeamMemberCard
-                                name="Rohan Jayawardena"
-                                position="Treasurer"
-                                image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            />
-                        </div>
-                    </div>
-                </section>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {/* Achievement 1 */}
+                            <Card className="shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <div className="h-40 bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                    </svg>
+                                </div>
+                                <CardContent className="p-6">
+                                    <h3 className="text-xl font-semibold text-university-800 mb-2">National Hackathon Champions</h3>
+                                    <p className="text-gray-600 mb-2">2024</p>
+                                    <p className="text-gray-600">
+                                        Our team won first place in the National Interuniversity Hackathon, developing an innovative solution for healthcare logistics using AI.
+                                    </p>
+                                </CardContent>
+                            </Card>
 
-                {/* Faculty Section */}
-                <section className="py-16">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex flex-col md:flex-row gap-12 items-center">
-                            <div className="md:w-1/2">
-                                <Card className="overflow-hidden border-none shadow-lg card-hover">
-                                    <CardContent className="p-0">
-                                        <img
-                                            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                                            alt="Faculty of Computing & Technology"
-                                            className="w-full h-80 object-cover"
-                                        />
-                                    </CardContent>
-                                </Card>
-                            </div>
+                            {/* Achievement 2 */}
+                            <Card className="shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <div className="h-40 bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    </svg>
+                                </div>
+                                <CardContent className="p-6">
+                                    <h3 className="text-xl font-semibold text-university-800 mb-2">Microsoft Imagine Cup Finalists</h3>
+                                    <p className="text-gray-600 mb-2">2023</p>
+                                    <p className="text-gray-600">
+                                        CSSA team reached the regional finals with their project on sustainable urban development using IoT and cloud technologies.
+                                    </p>
+                                </CardContent>
+                            </Card>
 
-                            <div className="md:w-1/2">
-                                <h2 className="text-3xl font-bold text-university-800 mb-6">Faculty of Computing & Technology</h2>
-                                <p className="text-gray-600 mb-4">
-                                    The Faculty of Computing & Technology at the University of Kelaniya is dedicated to providing high-quality education in computer science, software engineering, and related fields.
-                                </p>
-                                <p className="text-gray-600 mb-4">
-                                    With state-of-the-art facilities, experienced faculty members, and industry-aligned curriculum, the faculty prepares students for successful careers in the rapidly evolving technology landscape.
-                                </p>
-                                <p className="text-gray-600 mb-6">
-                                    The faculty offers undergraduate and postgraduate programs that emphasize both theoretical knowledge and practical skills, ensuring graduates are well-equipped for the challenges of the tech industry.
-                                </p>
-                            </div>
+                            {/* Achievement 3 */}
+                            <Card className="shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <div className="h-40 bg-gradient-to-r from-emerald-500 to-teal-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                    </svg>
+                                </div>
+                                <CardContent className="p-6">
+                                    <h3 className="text-xl font-semibold text-university-800 mb-2">Best Tech Community Award</h3>
+                                    <p className="text-gray-600 mb-2">2022</p>
+                                    <p className="text-gray-600">
+                                        Recognized as the most active and impactful tech community among Sri Lankan universities by the National IT Council.
+                                    </p>
+                                </CardContent>
+                            </Card>
+
+                            {/* Achievement 4 */}
+                            <Card className="shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <div className="h-40 bg-gradient-to-r from-blue-500 to-cyan-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+                                    </svg>
+                                </div>
+                                <CardContent className="p-6">
+                                    <h3 className="text-xl font-semibold text-university-800 mb-2">Google Developer Student Club</h3>
+                                    <p className="text-gray-600 mb-2">2021-Present</p>
+                                    <p className="text-gray-600">
+                                        Successfully established and maintained a Google Developer Student Club, organizing over 20 workshops annually.
+                                    </p>
+                                </CardContent>
+                            </Card>
+
+                            {/* Achievement 5 */}
+                            <Card className="shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <div className="h-40 bg-gradient-to-r from-rose-500 to-pink-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                                    </svg>
+                                </div>
+                                <CardContent className="p-6">
+                                    <h3 className="text-xl font-semibold text-university-800 mb-2">Research Publications</h3>
+                                    <p className="text-gray-600 mb-2">2020-Present</p>
+                                    <p className="text-gray-600">
+                                        CSSA members have published 15+ research papers in international conferences and journals on various computing topics.
+                                    </p>
+                                </CardContent>
+                            </Card>
+
+                            {/* Achievement 6 */}
+                            <Card className="shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <div className="h-40 bg-gradient-to-r from-violet-500 to-purple-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <CardContent className="p-6">
+                                    <h3 className="text-xl font-semibold text-university-800 mb-2">Industry Partnerships</h3>
+                                    <p className="text-gray-600 mb-2">2019-Present</p>
+                                    <p className="text-gray-600">
+                                        Established strong partnerships with 25+ tech companies, facilitating internships and job placements for our members.
+                                    </p>
+                                </CardContent>
+                            </Card>
                         </div>
                     </div>
                 </section>
@@ -207,11 +219,6 @@ const About = () => {
                         <p className="text-xl mb-8 max-w-3xl mx-auto">
                             Interested in joining the Computer Science Student Association or collaborating on events? Reach out to us today!
                         </p>
-                        <Link to="/contact">
-                            <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-university-900 font-bold">
-                                Contact Us
-                            </Button>
-                        </Link>
                     </div>
                 </section>
             </main>
