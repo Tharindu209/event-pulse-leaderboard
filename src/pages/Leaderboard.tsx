@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,54 +6,52 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import LeaderboardTable from '@/components/LeaderboardTable';
-import { leaderboardData } from '@/data/leaderboard';
 import { toast } from "@/components/ui/use-toast";
 import { RootState } from '../redux/store';
+import { supabase, getLeaderboard } from '@/utils/supabase'; // Update import
 
 const Leaderboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('rank');
   const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [leaderboardEntries, setLeaderboardEntries] = useState(leaderboardData);
-  
+  const [leaderboardEntries, setLeaderboardEntries] = useState([]);
+
   const { firstName, lastName } = useSelector((state: RootState) => state.user);
   const { score, timeTaken } = useSelector((state: RootState) => state.quiz);
-  
-  // Check if the user has completed a quiz that needs to be submitted
+
+  // Fetch leaderboard data from Supabase
   useEffect(() => {
-    const quizResult = localStorage.getItem('quizResult');
-    if (quizResult && !hasSubmitted && firstName && lastName && score > 0) {
-      // Here you would actually submit to Supabase
-      // For now, we'll just add to the local leaderboard
-      const newEntry = {
-        id: leaderboardEntries.length + 1,
-        rank: calculateRank(score),
-        name: `${firstName} ${lastName}`,
-        score: score,
-        timeTaken: timeTaken || "15:00" // Default if not set
-      };
-      
-      // Add the new entry and sort
-      const updatedEntries = [...leaderboardEntries, newEntry].sort((a, b) => b.score - a.score);
-      
-      // Reassign ranks based on score
-      const entriesWithUpdatedRanks = updatedEntries.map((entry, index) => ({
-        ...entry,
-        rank: index + 1
-      }));
-      
-      setLeaderboardEntries(entriesWithUpdatedRanks);
-      setHasSubmitted(true);
-      localStorage.removeItem('quizResult'); // Clear it so we don't submit again
-      
-      toast({
-        title: "Score Submitted!",
-        description: "Your score has been added to the leaderboard.",
-      });
+    let subscription: any;
+
+    async function fetchAndSubscribe() {
+      // Initial fetch
+      const data = await getLeaderboard();
+      setLeaderboardEntries(data);
+
+      // Subscribe to real-time changes
+      subscription = supabase
+        .channel('public:leaderboard')
+        .on(
+          'postgres_changes',
+          { event: '*', schema: 'public', table: 'leaderboard' },
+          async () => {
+            const updatedData = await getLeaderboard();
+            setLeaderboardEntries(updatedData);
+          }
+        )
+        .subscribe();
     }
-  }, [firstName, lastName, score, hasSubmitted, leaderboardEntries, timeTaken]);
+
+    fetchAndSubscribe();
+
+    // Cleanup on unmount
+    return () => {
+      if (subscription) {
+        supabase.removeChannel(subscription);
+      }
+    };
+  }, []);
   
-  // Calculate rank based on score comparison with existing entries
   const calculateRank = (newScore) => {
     let rank = 1;
     for (const entry of leaderboardEntries) {
@@ -63,16 +61,8 @@ const Leaderboard = () => {
     }
     return rank;
   };
-  
-  // Function to simulate submitting to Supabase
-  const handleSubmitToSupabase = () => {
-    // This is where you would integrate with Supabase
-    toast({
-      title: "Connecting to Supabase",
-      description: "To save scores to a database, please connect your project to Supabase.",
-    });
-  };
-  
+
+
   // Filter and sort the leaderboard data
   const filteredData = leaderboardEntries.filter(entry => 
     entry.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -141,16 +131,9 @@ const Leaderboard = () => {
           <div className="mt-8 text-center">
             <Button 
               className="bg-university-800 hover:bg-university-700 mr-4" 
-              onClick={() => window.location.href = '/register'}
+              onClick={() => window.location.href = '/'}
             >
-              Take the Quiz
-            </Button>
-            
-            <Button 
-              variant="outline"
-              onClick={handleSubmitToSupabase}
-            >
-              Connect to Supabase
+              Goto Home
             </Button>
           </div>
         </div>

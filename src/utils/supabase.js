@@ -12,14 +12,13 @@
 
 // Example implementation once connected to Supabase:
 
-/*
 import { createClient } from '@supabase/supabase-js'
 
 // These values will be provided by the Supabase integration
-const supabaseUrl = process.env.SUPABASE_URL
-const supabaseKey = process.env.SUPABASE_KEY
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseKey)
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 export async function saveScore(userData) {
   const { data, error } = await supabase
@@ -32,7 +31,7 @@ export async function saveScore(userData) {
         time_taken: userData.timeTaken
       }
     ])
-  
+  console.log('Data:', data)
   if (error) {
     console.error('Error saving score:', error)
     return { success: false, error }
@@ -59,4 +58,3 @@ export async function getLeaderboard() {
     timeTaken: entry.time_taken
   }))
 }
-*/

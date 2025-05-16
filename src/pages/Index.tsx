@@ -28,7 +28,7 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/leaderboard">
-                <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="text-black border-white hover:bg-white/10 hover:text-white">
                   View Leaderboard
                 </Button>
               </Link>

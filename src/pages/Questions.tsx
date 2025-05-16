@@ -15,6 +15,7 @@ import {
   resetQuiz 
 } from '../redux/quizSlice';
 import { RootState } from '../redux/store';
+import { saveScore } from '@/utils/supabase'; // Add this import
 
 const QUIZ_TIME = 15 * 60; // 15 minutes in seconds
 
@@ -26,7 +27,8 @@ const Questions = () => {
     currentQuestionIndex, 
     answers, 
     completed, 
-    score 
+    score, 
+    timeTaken
   } = useSelector((state: RootState) => state.quiz);
 
   // Redirect to registration if no name is provided
@@ -80,16 +82,29 @@ const Questions = () => {
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
-  const handleViewLeaderboard = () => {
-    // Save score to local storage for leaderboard submission
+  const handleViewLeaderboard = async () => {
+    // Prepare user data
     const userData = {
       firstName,
       lastName,
       score,
-      timeTaken: formatTime(QUIZ_TIME - 0) // Just an example, ideally track actual time
+      timeTaken
     };
-    localStorage.setItem('quizResult', JSON.stringify(userData));
-    navigate('/leaderboard');
+
+    // Save to Supabase
+    const result = await saveScore(userData);
+
+    if (result.success) {
+      // Optionally, you can show a toast here
+      // toast({ title: "Score Submitted!", description: "Your score has been added to the leaderboard." });
+      navigate('/leaderboard');
+    } else {
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your score.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleRestartQuiz = () => {
@@ -140,12 +155,6 @@ const Questions = () => {
                   className="bg-university-800 hover:bg-university-700"
                 >
                   View Leaderboard
-                </Button>
-                <Button 
-                  onClick={handleRestartQuiz} 
-                  variant="outline"
-                >
-                  Restart Quiz
                 </Button>
               </div>
             </div>

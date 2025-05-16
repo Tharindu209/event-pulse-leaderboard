@@ -54,10 +54,6 @@ const Navbar = () => {
             >
               Leaderboard
             </Link>
-            
-            <Button variant="outline" className="ml-4">
-              Sign In
-            </Button>
           </nav>
           
           <div className="flex items-center md:hidden">
