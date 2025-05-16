@@ -25,6 +25,9 @@ const Footer: React.FC = () => {
               <li>
                 <a href="/leaderboard" className="text-gray-300 hover:text-white transition">Leaderboard</a>
               </li>
+              <li>
+                <a href="/chatbot" className="text-gray-300 hover:text-white transition">Chatbot</a>
+              </li>
             </ul>
           </div>
           
