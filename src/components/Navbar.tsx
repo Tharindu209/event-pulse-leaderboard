@@ -17,7 +17,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
               <span className="text-2xl font-bold text-university-800">
-                UniEvents
+                FCT Open Day
               </span>
             </Link>
           </div>
