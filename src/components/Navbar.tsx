@@ -1,6 +1,7 @@
 
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { MessageCircle } from "lucide-react";
 
 const Navbar = () => {
   const location = useLocation();
@@ -53,6 +54,17 @@ const Navbar = () => {
               }`}
             >
               Leaderboard
+            </Link>
+            <Link
+              to="/chatbot"
+              className={`px-3 py-2 text-sm font-medium rounded-md flex items-center ${
+                isActive("/chatbot")
+                  ? "text-university-800 bg-blue-50"
+                  : "text-gray-600 hover:text-university-700 hover:bg-gray-50"
+              }`}
+            >
+              <MessageCircle className="mr-1 h-4 w-4" />
+              Course Info
             </Link>
           </nav>
           
