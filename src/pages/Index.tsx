@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -23,9 +22,9 @@ const Index = () => {
               Join "Crack the Code" - Our Annual Quiz Challenge
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-              <Link to="/questions">
+              <Link to="/register">
                 <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-university-900 font-bold">
-                  Start Quiz
+                  Register & Start Quiz
                 </Button>
               </Link>
               <Link to="/leaderboard">
@@ -48,7 +47,7 @@ const Index = () => {
                 description="Test your programming knowledge with our challenging quiz"
                 date="June 15, 2025"
                 time="10:00 AM - 2:00 PM"
-                linkTo="/questions"
+                linkTo="/register"
                 buttonText="Start Challenge"
               />
               

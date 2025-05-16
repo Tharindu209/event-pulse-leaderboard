@@ -1,6 +1,7 @@
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button } from "@/components/ui/button";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -8,56 +9,53 @@ import QuestionCard from '@/components/QuestionCard';
 import QuizTimer from '@/components/QuizTimer';
 import { questions } from '@/data/questions';
 import { toast } from "@/components/ui/use-toast";
-
-interface Answer {
-  questionId: number;
-  selectedOption: string;
-}
+import { 
+  answerQuestion, 
+  nextQuestion, 
+  completeQuiz, 
+  resetQuiz 
+} from '../redux/quizSlice';
 
 const QUIZ_TIME = 15 * 60; // 15 minutes in seconds
 
 const Questions = () => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Answer[]>([]);
-  const [quizCompleted, setQuizCompleted] = useState(false);
-  const [score, setScore] = useState(0);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { firstName, lastName } = useSelector((state) => state.user);
+  const { 
+    currentQuestionIndex, 
+    answers, 
+    completed, 
+    score 
+  } = useSelector((state) => state.quiz);
 
-  // Calculate score when quiz is completed
+  // Redirect to registration if no name is provided
   useEffect(() => {
-    if (quizCompleted) {
-      let totalScore = 0;
-      answers.forEach((answer) => {
-        const question = questions.find(q => q.id === answer.questionId);
-        if (question && question.correctAnswer === answer.selectedOption) {
-          totalScore += 100; // 100 points per correct answer
-        }
-      });
-      setScore(totalScore);
-      
+    if (!firstName || !lastName) {
       toast({
-        title: "Quiz Completed!",
-        description: `You scored ${totalScore} points. View your position on the leaderboard.`,
-        duration: 5000,
+        title: "Registration Required",
+        description: "Please register before taking the quiz",
+        variant: "destructive",
       });
+      navigate('/register');
     }
-  }, [quizCompleted, answers]);
+  }, [firstName, lastName, navigate]);
 
-  const handleAnswerSubmit = (questionId: number, selectedOption: string) => {
-    setAnswers(prev => [...prev, { questionId, selectedOption }]);
+  const handleAnswerSubmit = (questionId, selectedOption) => {
+    dispatch(answerQuestion({ questionId, selectedOption }));
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1);
-    } else {
-      // Quiz completed
-      setQuizCompleted(true);
-    }
+    dispatch(nextQuestion());
   };
 
   const handleTimeUp = () => {
-    setQuizCompleted(true);
+    const totalTime = formatTime(QUIZ_TIME);
+    dispatch(completeQuiz({ 
+      score: calculateScore(),
+      timeTaken: totalTime
+    }));
+    
     toast({
       title: "Time's Up!",
       description: "Your quiz time has expired.",
@@ -65,15 +63,37 @@ const Questions = () => {
     });
   };
 
+  const calculateScore = () => {
+    let totalScore = 0;
+    answers.forEach((answer) => {
+      const question = questions.find(q => q.id === answer.questionId);
+      if (question && question.correctAnswer === answer.selectedOption) {
+        totalScore += 100;
+      }
+    });
+    return totalScore;
+  };
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
+
   const handleViewLeaderboard = () => {
+    // Save score to local storage for leaderboard submission
+    const userData = {
+      firstName,
+      lastName,
+      score,
+      timeTaken: formatTime(QUIZ_TIME - 0) // Just an example, ideally track actual time
+    };
+    localStorage.setItem('quizResult', JSON.stringify(userData));
     navigate('/leaderboard');
   };
 
   const handleRestartQuiz = () => {
-    setCurrentQuestionIndex(0);
-    setAnswers([]);
-    setQuizCompleted(false);
-    setScore(0);
+    dispatch(resetQuiz());
   };
 
   return (
@@ -82,7 +102,7 @@ const Questions = () => {
       
       <main className="flex-grow py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {!quizCompleted ? (
+          {!completed ? (
             <>
               <h1 className="text-3xl font-bold text-university-800 mb-8 text-center">
                 Crack the Code Challenge

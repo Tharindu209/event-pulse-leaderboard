@@ -38,6 +38,13 @@ const QuizTimer = ({ totalSeconds, onTimeUp }: TimerProps) => {
 
   // Calculate progress percentage
   const progressPercentage = (timeRemaining / totalSeconds) * 100;
+  
+  // Determine the color class based on time remaining
+  const getProgressColorClass = () => {
+    if (timeRemaining < 60) return "bg-red-500";
+    if (timeRemaining < 180) return "bg-gold-500";
+    return "bg-green-500";
+  };
 
   return (
     <div className="w-full max-w-md mx-auto mb-8">
@@ -45,11 +52,12 @@ const QuizTimer = ({ totalSeconds, onTimeUp }: TimerProps) => {
         <span className="text-sm font-medium text-gray-500">Time Remaining</span>
         <span className="text-lg font-bold text-university-800">{formatTime()}</span>
       </div>
-      <Progress 
-        value={progressPercentage} 
-        className="h-2" 
-        indicatorClassName={`${timeRemaining < 60 ? 'bg-red-500' : timeRemaining < 180 ? 'bg-gold-500' : 'bg-green-500'}`}
-      />
+      <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+        <div 
+          className={`h-full ${getProgressColorClass()} transition-all duration-1000 ease-linear`}
+          style={{ width: `${progressPercentage}%` }}
+        ></div>
+      </div>
     </div>
   );
 };
