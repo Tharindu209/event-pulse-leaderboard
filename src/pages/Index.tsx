@@ -15,21 +15,21 @@ const Index = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-university-800 to-university-900 text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-              University Event 2025
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in leading-[1.8]">
+            FCT Open Day - Computer Science Degree Program
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Join "Crack the Code" - Our Annual Quiz Challenge
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in italic text-gray-200" style={{ animationDelay: "0.2s" }}>
+              Step Into the Digital Frontier: Your Journey in Tech Starts Here
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
               <Link to="/register">
                 <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-university-900 font-bold">
-                  Register & Start Quiz
+                  Who We Are
                 </Button>
               </Link>
               <Link to="/leaderboard">
                 <Button size="lg" variant="outline" className="text-black border-white hover:bg-white/10 hover:text-white">
-                  View Leaderboard
+                 Take the Quiz
                 </Button>
               </Link>
             </div>
