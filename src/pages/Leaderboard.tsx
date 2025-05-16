@@ -1,5 +1,7 @@
+
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -9,6 +11,7 @@ import LeaderboardTable from '@/components/LeaderboardTable';
 import { leaderboardData } from '@/data/leaderboard';
 import { toast } from "@/components/ui/use-toast";
 import { RootState } from '../redux/store';
+import { submitQuiz } from '../redux/quizSlice';
 
 const Leaderboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,13 +19,15 @@ const Leaderboard = () => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [leaderboardEntries, setLeaderboardEntries] = useState(leaderboardData);
   
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { firstName, lastName } = useSelector((state: RootState) => state.user);
-  const { score, timeTaken } = useSelector((state: RootState) => state.quiz);
+  const { score, timeTaken, submitted } = useSelector((state: RootState) => state.quiz);
   
   // Check if the user has completed a quiz that needs to be submitted
   useEffect(() => {
     const quizResult = localStorage.getItem('quizResult');
-    if (quizResult && !hasSubmitted && firstName && lastName && score > 0) {
+    if (quizResult && !hasSubmitted && firstName && lastName && score > 0 && !submitted) {
       // Here you would actually submit to Supabase
       // For now, we'll just add to the local leaderboard
       const newEntry = {
@@ -44,6 +49,7 @@ const Leaderboard = () => {
       
       setLeaderboardEntries(entriesWithUpdatedRanks);
       setHasSubmitted(true);
+      dispatch(submitQuiz()); // Mark as submitted in Redux
       localStorage.removeItem('quizResult'); // Clear it so we don't submit again
       
       toast({
@@ -51,7 +57,7 @@ const Leaderboard = () => {
         description: "Your score has been added to the leaderboard.",
       });
     }
-  }, [firstName, lastName, score, hasSubmitted, leaderboardEntries, timeTaken]);
+  }, [firstName, lastName, score, hasSubmitted, leaderboardEntries, timeTaken, submitted, dispatch]);
   
   // Calculate rank based on score comparison with existing entries
   const calculateRank = (newScore) => {
@@ -71,6 +77,11 @@ const Leaderboard = () => {
       title: "Connecting to Supabase",
       description: "To save scores to a database, please connect your project to Supabase.",
     });
+  };
+
+  // Handle taking the quiz again
+  const handleTakeQuiz = () => {
+    navigate('/register');
   };
   
   // Filter and sort the leaderboard data
@@ -141,9 +152,10 @@ const Leaderboard = () => {
           <div className="mt-8 text-center">
             <Button 
               className="bg-university-800 hover:bg-university-700 mr-4" 
-              onClick={() => window.location.href = '/register'}
+              onClick={handleTakeQuiz}
+              disabled={submitted}
             >
-              Take the Quiz
+              {submitted ? "Quiz Already Submitted" : "Take the Quiz"}
             </Button>
             
             <Button 

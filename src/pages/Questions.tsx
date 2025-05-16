@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,7 +13,8 @@ import {
   answerQuestion, 
   nextQuestion, 
   completeQuiz, 
-  resetQuiz 
+  resetQuiz,
+  submitQuiz 
 } from '../redux/quizSlice';
 import { RootState } from '../redux/store';
 
@@ -26,7 +28,8 @@ const Questions = () => {
     currentQuestionIndex, 
     answers, 
     completed, 
-    score 
+    score,
+    submitted
   } = useSelector((state: RootState) => state.quiz);
 
   // Redirect to registration if no name is provided
@@ -39,7 +42,12 @@ const Questions = () => {
       });
       navigate('/register');
     }
-  }, [firstName, lastName, navigate]);
+    
+    // If already submitted, redirect to leaderboard
+    if (submitted) {
+      navigate('/leaderboard');
+    }
+  }, [firstName, lastName, navigate, submitted]);
 
   const handleAnswerSubmit = (questionId, selectedOption) => {
     dispatch(answerQuestion({ questionId, selectedOption }));
@@ -89,6 +97,7 @@ const Questions = () => {
       timeTaken: formatTime(QUIZ_TIME - 0) // Just an example, ideally track actual time
     };
     localStorage.setItem('quizResult', JSON.stringify(userData));
+    dispatch(submitQuiz()); // Mark as submitted
     navigate('/leaderboard');
   };
 
@@ -138,15 +147,18 @@ const Questions = () => {
                 <Button 
                   onClick={handleViewLeaderboard} 
                   className="bg-university-800 hover:bg-university-700"
+                  disabled={submitted}
                 >
-                  View Leaderboard
+                  {submitted ? "Already Submitted" : "View Leaderboard"}
                 </Button>
-                <Button 
-                  onClick={handleRestartQuiz} 
-                  variant="outline"
-                >
-                  Restart Quiz
-                </Button>
+                {!submitted && (
+                  <Button 
+                    onClick={handleRestartQuiz} 
+                    variant="outline"
+                  >
+                    Restart Quiz
+                  </Button>
+                )}
               </div>
             </div>
           )}
