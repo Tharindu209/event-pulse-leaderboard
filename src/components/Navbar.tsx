@@ -57,19 +57,26 @@ const Navbar = () => {
             </Link>
 
             <Link
+                to="/chatbot"
+                className={`px-3 py-2 text-sm font-medium rounded-md flex items-center ${
+                    isActive("/chatbot")
+                        ? "text-university-800 bg-blue-50"
+                        : "text-gray-600 hover:text-university-700 hover:bg-gray-50"
+                }`}
+            >
+              <MessageCircle className="mr-1 h-4 w-4" />
+              Course Info
+            </Link>
+
+            <Link
               to="/about"
               className={`px-3 py-2 text-sm font-medium rounded-md ${
                 isActive("/about")
-              to="/chatbot"
-              className={`px-3 py-2 text-sm font-medium rounded-md flex items-center ${
-                isActive("/chatbot")
                   ? "text-university-800 bg-blue-50"
                   : "text-gray-600 hover:text-university-700 hover:bg-gray-50"
               }`}
             >
               About
-              <MessageCircle className="mr-1 h-4 w-4" />
-              Course Info
             </Link>
           </nav>
           
