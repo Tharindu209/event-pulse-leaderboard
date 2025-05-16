@@ -6,6 +6,7 @@ const initialState = {
   currentQuestionIndex: 0,
   answers: [],
   completed: false,
+  submitted: false, // New field to track if quiz has been submitted
   score: 0,
   timeRemaining: 15 * 60, // 15 minutes in seconds
   timeTaken: '',
@@ -43,10 +44,14 @@ const quizSlice = createSlice({
       state.score = action.payload.score;
       state.timeTaken = action.payload.timeTaken;
     },
+    submitQuiz: (state) => {
+      state.submitted = true;
+    },
     resetQuiz: (state) => {
       state.currentQuestionIndex = 0;
       state.answers = [];
       state.completed = false;
+      state.submitted = false;
       state.score = 0;
       state.timeRemaining = 15 * 60;
       state.timeTaken = '';
@@ -59,6 +64,7 @@ export const {
   nextQuestion, 
   updateTime, 
   completeQuiz, 
+  submitQuiz,
   resetQuiz 
 } = quizSlice.actions;
 
