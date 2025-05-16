@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,8 +12,7 @@ import {
   answerQuestion, 
   nextQuestion, 
   completeQuiz, 
-  resetQuiz,
-  submitQuiz 
+  resetQuiz 
 } from '../redux/quizSlice';
 import { RootState } from '../redux/store';
 import { saveScore } from '@/utils/supabase'; // Add this import
@@ -43,12 +41,7 @@ const Questions = () => {
       });
       navigate('/register');
     }
-    
-    // If already submitted, redirect to leaderboard
-    if (submitted) {
-      navigate('/leaderboard');
-    }
-  }, [firstName, lastName, navigate, submitted]);
+  }, [firstName, lastName, navigate]);
 
   const handleAnswerSubmit = (questionId, selectedOption) => {
     dispatch(answerQuestion({ questionId, selectedOption }));
@@ -160,9 +153,8 @@ const Questions = () => {
                 <Button 
                   onClick={handleViewLeaderboard} 
                   className="bg-university-800 hover:bg-university-700"
-                  disabled={submitted}
                 >
-                  {submitted ? "Already Submitted" : "View Leaderboard"}
+                  View Leaderboard
                 </Button>
               </div>
             </div>
