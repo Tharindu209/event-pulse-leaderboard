@@ -45,7 +45,7 @@ const LeaderboardTable = ({ entries }: LeaderboardTableProps) => {
                 )}
               </TableCell>
               <TableCell className="font-medium">{entry.name}</TableCell>
-              <TableCell className="text-right font-bold">{entry.score}</TableCell>
+              <TableCell className="text-right font-bold">{entry.score / 5}</TableCell>
               <TableCell className="text-right hidden md:table-cell">{entry.timeTaken || "-"}</TableCell>
             </TableRow>
           ))}
