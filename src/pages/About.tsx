@@ -202,10 +202,12 @@ const About = () => {
                     Intellihack 4.0
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    Sri Lanka's premier ML hackathon where we mentored 50+ teams
+                    {/* Sri Lanka's premier ML hackathon where we mentored 50+ teams
                     to build AI solutions for social good. Our participants
                     developed innovative models for healthcare diagnostics and
-                    environmental monitoring.
+                    environmental monitoring. */}
+We were honored to be among the winners of Sri Lanka’s premier machine learning hackathon, 
+recognized for our AI-driven solutions addressing healthcare and environmental challenges.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-purple-50 text-purple-600 text-xs font-medium rounded-full">
@@ -239,9 +241,8 @@ const About = () => {
                     Cyber Rush Code Jam
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    Our cybersecurity team placed 1st nationally by developing
-                    an advanced threat detection system using behavioral
-                    analysis, earning recognition from Sri Lanka CERT.
+                    Our cybersecurity team was honored to secure third place at CodeJam by CSE 2025,
+                     organized by the Department of Computer Science and Engineering, University of Moratuwa.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-amber-50 text-amber-600 text-xs font-medium rounded-full">
@@ -275,9 +276,8 @@ const About = () => {
                     Genesiz Robotics
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    Pioneered autonomous robotics solutions with our
-                    award-winning swarm robotics platform that demonstrated
-                    advanced coordination algorithms in industrial simulations.
+                    Our team was awarded second place at the Genesiz Robotics Ideathon competition, 
+                    organized by KDU, for developing an innovative research platform.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-emerald-50 text-emerald-600 text-xs font-medium rounded-full">
@@ -290,7 +290,7 @@ const About = () => {
                 </CardContent>
               </Card>
 
-              {/* Achievement 4 */}
+              {/* Achievement 4
               <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 h-full">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="h-48 overflow-hidden">
@@ -324,7 +324,7 @@ const About = () => {
                     </span>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
 
               {/* Achievement 5 */}
               <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 h-full">
@@ -344,12 +344,12 @@ const About = () => {
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                    Junior Hack
+                    JuniorHack 5.0
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    Our initiative to nurture young coders has trained 500+
-                    school students in computational thinking, with several
-                    winning national coding competitions.
+                    Our team achieved second place at the prestigious JuniorHack 5.0 hackathon competition, 
+                    organized by the Software Engineering Students' Association of the University of Kelaniya.
+
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-rose-50 text-rose-600 text-xs font-medium rounded-full">
@@ -380,12 +380,11 @@ const About = () => {
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                    IEEE Partnership
+                    IEEEXTREME 18.0
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    Published 15+ peer-reviewed papers in IEEE conferences on AI
-                    and IoT, establishing our department as a research hub in
-                    Sri Lanka's academic community.
+                    Team Vertex from University of Kelaniya achieved the 13th country rank and 255th global rank
+                     from university rankings in the IEEEXTREME 18.0 programming competition.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-violet-50 text-violet-600 text-xs font-medium rounded-full">
