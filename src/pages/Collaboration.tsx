@@ -19,7 +19,7 @@ const collaborations = [
     title: "IEEE CS Chapter",
     description: "The IEEE Computer Society is the world's leading organization of computing professionals, providing resources and opportunities for networking and career advancement.",
     longDescription: "The IEEE Computer Society, a global leader in technology innovation, connects professionals and students through publications, conferences, and educational initiatives. The chapter at our university fosters collaboration on cutting-edge research and organizes workshops, hackathons, and guest lectures to build a vibrant computing community.",
-    videoUrl: "https://drive.google.com/file/d/1M1Gxjw6oe52NpM3ECbPKepxhxdvjUBQ3/view", // Replace with actual video URL
+    videoUrl: "https://drive.google.com/file/d/1M1Gxjw6oe52NpM3ECbPKepxhxdvjUBQ3/preview", // Replace with actual video URL
     imageUrl: "ieee_cs_logo_orange.png", 
     color: "bg-university-700"
   },
