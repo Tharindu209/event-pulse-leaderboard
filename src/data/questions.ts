@@ -8,8 +8,7 @@ export interface Question {
   correctAnswer: string;
 }
 
-export const questions: Question[] = 
-[
+export const questions: Question[] = [
   {
     id: 1,
     text: "What does FCT stand for at the University of Kelaniya?",
@@ -26,9 +25,9 @@ export const questions: Question[] =
     text: "Which degree can you study in Computer Science at FCT?",
     options: [
       { id: "a", text: "BSc Honours in Computer Science" },
-      { id: "b", text: "BCom in Computer Studies" },
-      { id: "c", text: "BEng in IT" },
-      { id: "d", text: "BA in Programming" }
+      { id: "b", text: "BCom in Information Systems" },
+      { id: "c", text: "BEng in Software Engineering" },
+      { id: "d", text: "BA in Digital Media and Design" }
     ],
     correctAnswer: "a"
   },
@@ -102,22 +101,22 @@ export const questions: Question[] =
     id: 9,
     text: "What is an example of a Cyber Security topic?",
     options: [
-      { id: "a", text: "Gardening" },
+      { id: "a", text: "Mobile app design" },
       { id: "b", text: "Hacking prevention" },
-      { id: "c", text: "Acting on stage" },
-      { id: "d", text: "Playing football" }
+      { id: "c", text: "Game development" },
+      { id: "d", text: "Repairing a computer" }
     ],
     correctAnswer: "b"
   },
   {
     id: 10,
-    text: "What is the goal of FCT?",
+    text: "Which of these is a career path after studying Computer Science?",
     options: [
-      { id: "a", text: "To make films" },
-      { id: "b", text: "To teach farming" },
-      { id: "c", text: "To build computer and tech skills for the future" },
-      { id: "d", text: "To teach singing" }
+      { id: "a", text: "Software Developer" },
+      { id: "b", text: "Chef" },
+      { id: "c", text: "Dentist" },
+      { id: "d", text: "Musician" }
     ],
-    correctAnswer: "c"
+    correctAnswer: "a"
   }
-]
+];

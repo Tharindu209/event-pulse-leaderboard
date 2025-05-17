@@ -55,10 +55,10 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <address className="not-italic text-sm text-gray-300">
-              <p>University Campus</p>
-              <p>123 Education St.</p>
-              <p>University City, UC 12345</p>
-              <p className="mt-2">Email: events@university.edu</p>
+              <p>Computer Science Students' Association</p>
+              <p>Faculty of Computing and Technology</p>
+              <p>University of Kelaniya</p>
+              <p className="mt-2">Email: uok.cssa@gmail.com</p>
             </address>
           </div>
         </div>
