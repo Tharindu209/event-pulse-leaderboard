@@ -53,15 +53,17 @@ const About = () => {
               </div>
 
               <div className="md:w-1/2">
-                <Card className="overflow-hidden border-none shadow-lg card-hover">
-                  <CardContent className="p-0">
-                    <img
-                      src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                      alt="CSSA members collaborating"
-                      className="w-full h-80 object-cover"
-                    />
-                  </CardContent>
-                </Card>
+              <Card className="overflow-hidden border-none shadow-lg card-hover">
+  <CardContent className="p-0">
+    <img
+      src="./cs-batch-photo.jpg"
+      alt="CSSA members collaborating"
+      className="w-full h-80 object-cover object-top"
+      style={{ objectPosition: 'center 65%' }}
+    />
+  </CardContent>
+</Card>
+
               </div>
             </div>
           </div>

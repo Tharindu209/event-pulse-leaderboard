@@ -79,10 +79,10 @@ export const questions: Question[] = [
     id: 7,
     text: "What is the name of the special project students do in their final year?",
     options: [
-      { id: "a", text: "Painting" },
+      { id: "a", text: "Capstone Project" },
       { id: "b", text: "Research Project" },
-      { id: "c", text: "Driving Test" },
-      { id: "d", text: "Singing Exam" }
+      { id: "c", text: "System Development Project" },
+      { id: "d", text: "Software Engineering Project" }
     ],
     correctAnswer: "b"
   },
