@@ -26,6 +26,7 @@ const PDF_URLS = [
 ];
 
 async function queryDeepSeekPDF(question: string): Promise<string> {
+    const questions = question + " with using this pdf contend and only for the universirty of kelaniya sri lanka faculty of computing and technology.. you can use the web also.";
   try {
     const response = await axios.post(
       DEEPSEEK_ENDPOINT,
@@ -33,7 +34,7 @@ async function queryDeepSeekPDF(question: string): Promise<string> {
         model: "deepseek-chat",
         messages: [
           { role: "system", content: "Generates an answer based on relevant mention documents and university web" },
-          { role: "user", content: question }
+          { role: "user", content: questions }
         ],
         documents: PDF_URLS.map(url => ({ url }))
       },
