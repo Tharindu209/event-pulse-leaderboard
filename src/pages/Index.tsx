@@ -55,7 +55,7 @@ const Index = () => {
               >
                 Who We Are
               </Button>
-              <Link to="/leaderboard">
+              <Link to="/questions">
                 <Button
                   size="lg"
                   variant="outline"
