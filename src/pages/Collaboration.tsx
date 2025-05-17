@@ -17,8 +17,7 @@ const collaborations = [
   {
     id: "ieee",
     title: "IEEE CS Chapter",
-    description: "The IEEE Computer Society is the world's leading organization of computing professionals, providing resources and opportunities for networking and career advancement.",
-    longDescription: "The IEEE Computer Society, a global leader in technology innovation, connects professionals and students through publications, conferences, and educational initiatives. The chapter at our university fosters collaboration on cutting-edge research and organizes workshops, hackathons, and guest lectures to build a vibrant computing community.",
+    description: "The IEEE Computer Society connects computing professionals and undergraduates with resources, networking, and career opportunities.",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video URL
     imageUrl: "https://via.placeholder.com/600x400?text=IEEE+CS+Chapter", 
     color: "bg-university-700"
