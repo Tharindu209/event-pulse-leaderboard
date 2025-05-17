@@ -19,7 +19,7 @@ const collaborations = [
     title: "IEEE CS Chapter",
     description: "The IEEE Computer Society connects computing professionals and undergraduates with resources, networking, and career opportunities.",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video URL
-    imageUrl: "https://via.placeholder.com/600x400?text=IEEE+CS+Chapter", 
+    imageUrl: "ieee_cs_logo_orange.png", 
     color: "bg-university-700"
   },
   {
@@ -28,7 +28,7 @@ const collaborations = [
     description: "Free and Open Source Software community promoting FOSS adoption, development, and education at the University.",
     longDescription: "FOSS UOK (Free and Open Source Software University of Knowledge) is dedicated to promoting open-source software development principles. Members contribute to open-source projects, organize code sprints, and conduct workshops on tools like Git, Linux, and various open-source frameworks to foster a culture of collaborative development and knowledge sharing.",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video URL
-    imageUrl: "https://via.placeholder.com/600x400?text=FOSS+UOK",
+    imageUrl: "foss.png",
     color: "bg-gold-500"
   },
   {
@@ -37,7 +37,7 @@ const collaborations = [
     description: "Information Systems Audit and Control Association chapter focused on IT governance, security, and risk management.",
     longDescription: "ISACA (Information Systems Audit and Control Association) provides students with opportunities to develop skills in IT governance, cybersecurity, and risk management. The chapter hosts certification preparation sessions, security competitions, and industry networking events to bridge academic knowledge with professional practice in information systems security and control.",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video URL
-    imageUrl: "https://via.placeholder.com/600x400?text=ISACA",
+    imageUrl: "UOK_ISG_Logo_1.png",
     color: "bg-university-500"
   }
 ];
