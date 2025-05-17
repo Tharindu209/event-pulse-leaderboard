@@ -184,7 +184,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="images/intellihack.jpg"
+                    src="intellihack.jpg"
                     alt="Intellihack participants"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -221,7 +221,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-400/10 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="images/cyberrush.jpg"
+                    src="cyberrush.jpg"
                     alt="Cyber Rush competition"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -257,7 +257,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="images/genesiz.jpg"
+                    src="genesiz.jpg"
                     alt="Genesiz robotics event"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -293,7 +293,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="images/intellihack-winning.webp"
+                    src="intellihack-winning.webp"
                     alt="Intellihack winners"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -329,7 +329,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="images/group.jpg"
+                    src="group.jpg"
                     alt="Junior Hack participants"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -365,7 +365,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="images/ieee.jpg"
+                    src="ieee.jpg"
                     alt="IEEE collaboration"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
