@@ -100,17 +100,6 @@ export const questions: Question[] =
   },
   {
     id: 9,
-    text: "What is a computer network used for?",
-    options: [
-      { id: "a", text: "Cooking" },
-      { id: "b", text: "Making music" },
-      { id: "c", text: "Connecting computers" },
-      { id: "d", text: "Sleeping" }
-    ],
-    correctAnswer: "c"
-  },
-  {
-    id: 10,
     text: "What is an example of a Cyber Security topic?",
     options: [
       { id: "a", text: "Gardening" },
@@ -121,18 +110,7 @@ export const questions: Question[] =
     correctAnswer: "b"
   },
   {
-    id: 11,
-    text: "Where is the new building complex for FCT located?",
-    options: [
-      { id: "a", text: "Colombo" },
-      { id: "b", text: "Bulugaha Juncion, Kelaniya" },
-      { id: "c", text: "Kandy" },
-      { id: "d", text: "Kurunegala" }
-    ],
-    correctAnswer: "b"
-  },
-  {
-    id: 12,
+    id: 10,
     text: "What is the goal of FCT?",
     options: [
       { id: "a", text: "To make films" },

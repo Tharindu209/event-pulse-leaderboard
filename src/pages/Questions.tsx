@@ -79,7 +79,7 @@ const Questions = () => {
     answers.forEach((answer) => {
       const question = questions.find(q => q.id === answer.questionId);
       if (question && question.correctAnswer === answer.selectedOption) {
-        totalScore += 100;
+        totalScore += 10;
       }
     });
     return totalScore;
