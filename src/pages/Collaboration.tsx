@@ -37,7 +37,7 @@ const collaborations = [
     title: "ISACA",
     description: "Information Systems Audit and Control Association chapter focused on IT governance, security, and risk management.",
     longDescription: "ISACA (Information Systems Audit and Control Association) provides students with opportunities to develop skills in IT governance, cybersecurity, and risk management. The chapter hosts certification preparation sessions, security competitions, and industry networking events to bridge academic knowledge with professional practice in information systems security and control.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video URL
+    videoUrl: "https://drive.google.com/file/d/1M1Gxjw6oe52NpM3ECbPKepxhxdvjUBQ3/view", // Replace with actual video URL
     imageUrl: "UOK_ISG_Logo_1.png",
     color: "bg-university-500"
   }
